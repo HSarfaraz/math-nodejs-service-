@@ -85,8 +85,7 @@ node server.js
  Method: POST
  RequestBody: {
     "input1": 24,
-    "input2": 12,
-    "sum": 0
+    "input2": 12
   }
 ```
 
@@ -97,8 +96,7 @@ node server.js
  Method: POST
  RequestBody: {
     "input1": 24,
-    "input2": 12,
-    "sum": 0
+    "input2": 12
   }
 ```
 
@@ -109,8 +107,7 @@ node server.js
  Method: POST
  RequestBody: {
     "input1": 24,
-    "input2": 12,
-    "sum": 0
+    "input2": 12
   }
 ```
 
@@ -121,7 +118,6 @@ node server.js
  Method: POST
  RequestBody: {
     "input1": 24,
-    "input2": 12,
-    "sum": 0
+    "input2": 12
   }
 ```
