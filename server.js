@@ -11,8 +11,8 @@ const port = process.env.PORT || 8080;
 
 //routes will go here if
 
-/* API add */
-app.post('/add', function (req, res, next) {
+/* API add: using request body */
+app.get('/add', function (req, res, next) {
   let input1 = req.body.input1;
   let input2 = req.body.input2;
   let sum = input1 + input2;
@@ -20,26 +20,25 @@ app.post('/add', function (req, res, next) {
   res.send('addition is : ' + sum);
 });
 
-/* API sub */
-app.post('/sub', function (req, res, next) {
-  let input1 = req.body.input1;
-  let input2 = req.body.input2;
-  let sum = input1 - input2;
-  console.log('sum', sum);
-  res.send('Substraction is : ' + sum);
+/* API sub: using request params */
+app.get('/sub/:input1/:input2', function (req, res, next) {
+  let input1 = Number(req.params.input1);
+  let input2 = Number(req.params.input2);
+  let sub = input1 - input2;
+  console.log('sub', sub);
+  res.send('Substraction is : ' + sub);
 });
 
-/* API multiply */
-app.post('/multiply', function (req, res, next) {
-  let input1 = req.body.input1;
-  let input2 = req.body.input2;
-  let sum = input1 * input2;
-  console.log('sum', sum);
-  res.send('Multiplication is : ' + sum);
+/* API multiply: using request query */
+app.get('/multiply', function (req, res, next) {
+  let input1 = Number(req.query.input1);
+  let input2 = Number(req.query.input2);
+  let mul = input1 * input2;
+  res.send('Multiplication is : ' + mul);
 });
 
 /* API divid */
-app.post('/divid', function (req, res, next) {
+app.get('/divid', function (req, res, next) {
   let input1 = req.body.input1;
   let input2 = req.body.input2;
   let sum = input1 / input2;
