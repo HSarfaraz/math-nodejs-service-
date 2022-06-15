@@ -20,41 +20,53 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// parse application/json
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 8080;
 
-// routes will go here
+//routes will go here if
 
-/* API name */
-app.get('/name', function (req, res, next) {
-  res.send('Sarfraz Hussain');
+/* API add */
+app.post('/add', function (req, res, next) {
+  let input1 = req.body.input1;
+  let input2 = req.body.input2;
+  let sum = input1 + input2;
+  console.log('sum', sum);
+  res.send('addition is : ' + sum);
 });
 
-/* API daughter */
-app.get('/daughter', function (req, res, next) {
-  res.send('Maryam Sarfraz');
+/* API sub */
+app.post('/sub', function (req, res, next) {
+  let input1 = req.body.input1;
+  let input2 = req.body.input2;
+  let sum = input1 - input2;
+  console.log('sum', sum);
+  res.send('Substraction is : ' + sum);
 });
 
-/* API bhai */
-app.get('/bhai', function (req, res, next) {
-  var brotherCatogary = req.body.brotherCatogary;
-  console.log(brotherCatogary);
-  if (brotherCatogary == 'bada') {
-    res.send('Siraj Chaudhary');
-  } else if (brotherCatogary == 'chhota') {
-    res.send('Aamer Sohail');
-  } else {
-    res.send('Not Found');
-  }
+/* API multiply */
+app.post('/multiply', function (req, res, next) {
+  let input1 = req.body.input1;
+  let input2 = req.body.input2;
+  let sum = input1 * input2;
+  console.log('sum', sum);
+  res.send('Multiplication is : ' + sum);
+});
+
+/* API divid */
+app.post('/divid', function (req, res, next) {
+  let input1 = req.body.input1;
+  let input2 = req.body.input2;
+  let sum = input1 / input2;
+  console.log('sum', sum);
+  res.send('Dividation is : ' + sum);
 });
 
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
+
 
 ```
 
